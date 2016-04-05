@@ -4,5 +4,4 @@
 
 <br />
 
-<%= link_to 'Show', @list, class: 'btn btn-primary btn-xs' %> |
-<%= link_to 'Back', lists_path, class: 'btn btn-warning btn-xs' %>
+<%= link_to 'Back', list_path(@list, :list_title => @list.title), class: 'btn btn-warning btn-xs' %>

@@ -1,14 +1,17 @@
 class ItemController < ApplicationController
+  $current_list
+
   def new
     @list_title = params[:list_title]
     @actual_list = List.find_by_title(@list_title)
+    $current_list = @actual_list
   end
 
   def create
     @item = Item.new(item_params)
 
     @item.save
-    redirect_to lists_path
+    redirect_to list_path(List.find_by_title($current_list.title), :list_title => $current_list.title)
   end
 
   def destroy

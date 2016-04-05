@@ -1,0 +1,18 @@
+<h3>New Item for <%= @actual_list.title %></h3>
+
+<%= form_for :item do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :list_title %><br />
+    <%= f.text_field :list_title, :value => @list_title %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p> 
+  
+<% end %>

@@ -21,11 +21,15 @@
       <% @items.each do |item| %>
         <tr>
           <td><%= item.name %></td>
-          <td><%= link_to 'Delete', item, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></td>
+          <td><%= link_to 'Delete', item_path(item, :list => @list), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %></td>
         </tr>
       <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<br />
+
+<%= link_to 'New Item', new_item_path(:list_title => @list.title, :list_id => @list.id), class: 'btn btn-success btn-xs' %> |
+<%= link_to 'Edit', edit_list_path(@list), class: 'btn btn-info btn-xs' %> |
+<%= link_to 'Back', lists_path, class: 'btn btn-warning btn-xs' %>
+
